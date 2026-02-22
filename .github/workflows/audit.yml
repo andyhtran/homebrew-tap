@@ -26,14 +26,16 @@ jobs:
         run: |
           for f in Formula/*.rb; do
             [ -f "$f" ] || continue
-            echo "==> Auditing $f"
-            brew audit --formula "$f"
+            name="$(basename "$f" .rb)"
+            echo "==> Auditing $name"
+            brew audit --formula "$name"
           done
 
       - name: Audit casks
         run: |
           for f in Casks/*.rb; do
             [ -f "$f" ] || continue
-            echo "==> Auditing $f"
-            brew audit --cask "$f"
+            name="$(basename "$f" .rb)"
+            echo "==> Auditing $name"
+            brew audit --cask "$name"
           done
