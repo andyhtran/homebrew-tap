@@ -24,7 +24,7 @@ brew install --cask andyhtran/tap/<cask>
 
 | Formula | Description |
 |---------|-------------|
-| *Coming soon* | |
+| [cct](https://github.com/andyhtran/cct) | Claude Code Tools: list, search, resume your Claude Code sessions |
 
 ## Available Casks
 
