@@ -1,0 +1,39 @@
+name: Audit
+
+on:
+  pull_request:
+    paths:
+      - "Formula/*.rb"
+      - "Casks/*.rb"
+  push:
+    branches: [main]
+    paths:
+      - "Formula/*.rb"
+      - "Casks/*.rb"
+
+jobs:
+  audit:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Tap this repo
+        run: |
+          mkdir -p "$(brew --repository)/Library/Taps/andyhtran"
+          ln -s "$GITHUB_WORKSPACE" "$(brew --repository)/Library/Taps/andyhtran/homebrew-tap"
+
+      - name: Audit formulas
+        run: |
+          for f in Formula/*.rb; do
+            [ -f "$f" ] || continue
+            echo "==> Auditing $f"
+            brew audit --formula "$f"
+          done
+
+      - name: Audit casks
+        run: |
+          for f in Casks/*.rb; do
+            [ -f "$f" ] || continue
+            echo "==> Auditing $f"
+            brew audit --cask "$f"
+          done

@@ -1,0 +1,76 @@
+name: Update Formula
+
+on:
+  workflow_dispatch:
+    inputs:
+      formula:
+        description: "Formula name (e.g., mytool)"
+        required: true
+        type: string
+      tag:
+        description: "Release tag (e.g., v1.0.0)"
+        required: true
+        type: string
+      repository:
+        description: "Source repository (e.g., andyhtran/mytool)"
+        required: true
+        type: string
+
+jobs:
+  update-formula:
+    runs-on: macos-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Update formula
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          FORMULA="${{ github.event.inputs.formula }}"
+          TAG="${{ github.event.inputs.tag }}"
+          REPO="${{ github.event.inputs.repository }}"
+          VERSION="${TAG#v}"
+          FORMULA_FILE="Formula/${FORMULA}.rb"
+
+          if [ ! -f "$FORMULA_FILE" ]; then
+            echo "::error::Formula file $FORMULA_FILE not found"
+            exit 1
+          fi
+
+          echo "==> Release assets for ${REPO}@${TAG}:"
+          gh release view "$TAG" --repo "$REPO" --json assets --jq '.assets[].name'
+
+          for PATTERN in \
+            "${FORMULA}-macos-universal.tar.gz" \
+            "${FORMULA}-macos-arm64.tar.gz" \
+            "${FORMULA}_${VERSION}_darwin_arm64.tar.gz"; do
+            URL="https://github.com/${REPO}/releases/download/${TAG}/${PATTERN}"
+            if curl -fsSL --head "$URL" > /dev/null 2>&1; then
+              echo "==> Found asset: $PATTERN"
+              curl -fsSL -o "${FORMULA}.tar.gz" "$URL"
+              break
+            fi
+          done
+
+          if [ ! -f "${FORMULA}.tar.gz" ]; then
+            echo "::error::Could not find release asset for ${FORMULA}"
+            exit 1
+          fi
+
+          SHA256=$(shasum -a 256 "${FORMULA}.tar.gz" | awk '{print $1}')
+          echo "==> SHA256: $SHA256"
+
+          sed -i '' "s/version \".*\"/version \"${VERSION}\"/" "$FORMULA_FILE"
+          sed -i '' "s/sha256 \".*\"/sha256 \"${SHA256}\"/" "$FORMULA_FILE"
+
+          git add "$FORMULA_FILE"
+          git diff --cached --quiet && echo "No changes" && exit 0
+          git commit -m "Update ${FORMULA} to ${VERSION}"
+          git push
