@@ -5,11 +5,13 @@ on:
     paths:
       - "Formula/*.rb"
       - "Casks/*.rb"
+      - ".github/workflows/audit.yml"
   push:
     branches: [main]
     paths:
       - "Formula/*.rb"
       - "Casks/*.rb"
+      - ".github/workflows/audit.yml"
 
 jobs:
   audit:
