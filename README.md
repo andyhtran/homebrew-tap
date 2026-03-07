@@ -30,4 +30,4 @@ brew install --cask andyhtran/tap/<cask>
 
 | Cask | Description |
 |------|-------------|
-| *Coming soon* | |
+| [miniwhisper](https://github.com/andyhtran/MiniWhisper) | Minimal macOS menu bar app for speech-to-text transcription |
