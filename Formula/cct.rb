@@ -5,21 +5,21 @@
 class Cct < Formula
   desc "Browse, search, and manage Claude Code session history from the terminal"
   homepage "https://github.com/andyhtran/cct"
-  version "0.6.0"
+  version "1.0.0"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/andyhtran/cct/releases/download/v0.6.0/cct_Darwin_x86_64.tar.gz"
-      sha256 "5ff9e4284dc53a83026b97f2a8841220faacbeb6258f3d86cd93e3a48ce7f57d"
+      url "https://github.com/andyhtran/cct/releases/download/v1.0.0/cct_Darwin_x86_64.tar.gz"
+      sha256 "5c916baba279313b24a124d7ca876c57548b328191775d42869ee30c8539ed8a"
 
       define_method(:install) do
         bin.install "cct"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/andyhtran/cct/releases/download/v0.6.0/cct_Darwin_arm64.tar.gz"
-      sha256 "348c98b3578dfb3590f374915ec930083afd0fa6d5b9d2cd00d6433df4fe0b55"
+      url "https://github.com/andyhtran/cct/releases/download/v1.0.0/cct_Darwin_arm64.tar.gz"
+      sha256 "9ea289c5450c2e310338ce2bf13d539cfdd85ef88f0159101470b0729c3c9290"
 
       define_method(:install) do
         bin.install "cct"
@@ -29,15 +29,15 @@ class Cct < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/andyhtran/cct/releases/download/v0.6.0/cct_Linux_x86_64.tar.gz"
-      sha256 "fc0c17e78659bb32f05605c03669030a0eec0147109dd22a926579a407c1242c"
+      url "https://github.com/andyhtran/cct/releases/download/v1.0.0/cct_Linux_x86_64.tar.gz"
+      sha256 "df4c50cd883bd318a9a624e8517129196a2e5788906fe445728249a580ac8440"
       define_method(:install) do
         bin.install "cct"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/andyhtran/cct/releases/download/v0.6.0/cct_Linux_arm64.tar.gz"
-      sha256 "b18e27a1a37deb9a5dd33dab913cacf10532325ecbffc1cb467f0fe28aca4a1f"
+      url "https://github.com/andyhtran/cct/releases/download/v1.0.0/cct_Linux_arm64.tar.gz"
+      sha256 "ed4b75112e8b9a9131b02b9573a4d96080e9e0965fa747e07de782ee2cd92901"
       define_method(:install) do
         bin.install "cct"
       end
