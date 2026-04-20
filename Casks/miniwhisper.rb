@@ -1,6 +1,6 @@
 cask "miniwhisper" do
-  version "0.3.1"
-  sha256 "21d99be5659c0f72f9fa79fa13ebbd2074d4c73e2a231831699f1511b3b4a8dc"
+  version "1.0.0"
+  sha256 "df6c320e2acc71658740d99cab45af01fe7bf936fe200d1ba52cf7fd0020c859"
 
   url "https://github.com/andyhtran/MiniWhisper/releases/download/v#{version}/MiniWhisper-#{version}.zip"
   name "MiniWhisper"
