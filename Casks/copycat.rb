@@ -1,6 +1,6 @@
 cask "copycat" do
-  version "0.2.0"
-  sha256 "c0f5620d35ea306ef60c98e11a27d17436511623125b656b0a3a6fd101c1d7d5"
+  version "0.3.0"
+  sha256 "7a81141511f22ef41000f9c45c452d2638424c4d01fee561d744d4053808b009"
 
   url "https://github.com/andyhtran/CopyCat/releases/download/v#{version}/CopyCat-#{version}.zip"
   name "CopyCat"
