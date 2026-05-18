@@ -25,9 +25,11 @@ brew install --cask andyhtran/tap/<cask>
 | Formula | Description |
 |---------|-------------|
 | [cct](https://github.com/andyhtran/cct) | Claude Code Tools: list, search, resume your Claude Code sessions |
+| [sparkle-tools](https://sparkle-project.org) | CLI tools for Sparkle 2 app updates (generate_keys, generate_appcast, sign_update) |
 
 ## Available Casks
 
 | Cask | Description |
 |------|-------------|
+| [copycat](https://github.com/andyhtran/CopyCat) | MacOS app for CMD + V pasting screenshots into terminals (local + SSH) |
 | [miniwhisper](https://github.com/andyhtran/MiniWhisper) | Minimal macOS menu bar app for speech-to-text transcription |
