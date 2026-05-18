@@ -4,13 +4,11 @@
 class SparkleTools < Formula
   desc "CLI tools for Sparkle 2 app updates (generate_keys, generate_appcast, sign_update)"
   homepage "https://sparkle-project.org"
-  version "2.9.2"
+  url "https://github.com/sparkle-project/Sparkle/releases/download/2.9.2/Sparkle-2.9.2.tar.xz"
+  sha256 "1cb340cbbef04c6c0d162078610c25e2221031d794a3449d89f2f56f4df77c95"
   license "MIT"
 
-  on_macos do
-    url "https://github.com/sparkle-project/Sparkle/releases/download/#{version}/Sparkle-#{version}.tar.xz"
-    sha256 "1cb340cbbef04c6c0d162078610c25e2221031d794a3449d89f2f56f4df77c95"
-  end
+  depends_on :macos
 
   def install
     bin.install "bin/generate_keys"
