@@ -1,6 +1,6 @@
 cask "miniwhisper" do
-  version "1.5.6"
-  sha256 "119d39e69d1522d019d933ca18ebc8bab54a799b06c220bd508414137fc03881"
+  version "1.6.0"
+  sha256 "90ab22becc8d5912d076d4f0a8aaa5f61d1bea0e851a2d385ccedd0dfed465c6"
 
   url "https://github.com/andyhtran/MiniWhisper/releases/download/v#{version}/MiniWhisper-#{version}.zip"
   name "MiniWhisper"
@@ -8,7 +8,7 @@ cask "miniwhisper" do
   homepage "https://github.com/andyhtran/MiniWhisper"
 
   auto_updates true
-  # bare symbol means ">= Sonoma"; string comparison syntax is deprecated
+  # bare symbol means ">= Sonoma"
   depends_on macos: :sonoma
 
   app "MiniWhisper.app"
