@@ -5,19 +5,17 @@ Personal Homebrew tap for CLI tools and macOS applications.
 ## Usage
 
 ```bash
-brew tap andyhtran/tap
-```
-
-### Install a formula (CLI tool)
-
-```bash
 brew install andyhtran/tap/<formula>
+brew install --cask andyhtran/tap/<cask>
 ```
 
-### Install a cask (macOS app)
+To use short names instead, tap and trust first:
 
 ```bash
-brew install --cask andyhtran/tap/<cask>
+brew tap andyhtran/tap
+brew trust andyhtran/tap
+brew install <formula>
+brew install --cask <cask>
 ```
 
 ## Available Formulas
