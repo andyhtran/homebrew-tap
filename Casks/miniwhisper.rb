@@ -8,6 +8,7 @@ cask "miniwhisper" do
   homepage "https://github.com/andyhtran/MiniWhisper"
 
   auto_updates true
+  # bare symbol means ">= Sonoma"; string comparison syntax is deprecated
   depends_on macos: :sonoma
 
   app "MiniWhisper.app"
