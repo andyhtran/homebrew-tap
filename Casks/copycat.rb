@@ -7,7 +7,8 @@ cask "copycat" do
   desc "Image-paste menu bar app for terminals"
   homepage "https://github.com/andyhtran/CopyCat"
 
-  depends_on macos: ">= :sonoma"
+  # bare symbol means ">= Sonoma"
+  depends_on macos: :sonoma
 
   app "CopyCat.app"
 
