@@ -5,21 +5,21 @@
 class Slacky < Formula
   desc "Read-only Slack search for fast context, built for people and agents"
   homepage "https://github.com/andyhtran/slacky"
-  version "0.1.0"
+  version "1.1.0"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/andyhtran/slacky/releases/download/v0.1.0/slacky_Darwin_x86_64.tar.gz"
-      sha256 "2d8a695558ead4604d8dc47c9b49de1c68122b4cc1c7a53c84dc8cddb7a93ac6"
+      url "https://github.com/andyhtran/slacky/releases/download/v1.1.0/slacky_Darwin_x86_64.tar.gz"
+      sha256 "8bd06961d9500697c2aeb1bd6e1998e23cd82dc0d3108b2c3102a00f2584b10f"
 
       define_method(:install) do
         bin.install "slacky"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/andyhtran/slacky/releases/download/v0.1.0/slacky_Darwin_arm64.tar.gz"
-      sha256 "80bc17306af865075c2c66a77d9b96fd9371201c1a99229fb19b13bed466f296"
+      url "https://github.com/andyhtran/slacky/releases/download/v1.1.0/slacky_Darwin_arm64.tar.gz"
+      sha256 "836608f7b14ab15a8a5e782820d12300657f4e0d37a0d1ce790e1c0ba71071cc"
 
       define_method(:install) do
         bin.install "slacky"
@@ -29,15 +29,15 @@ class Slacky < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/andyhtran/slacky/releases/download/v0.1.0/slacky_Linux_x86_64.tar.gz"
-      sha256 "f0ceeb44bf680bd61d4fc9c4568ee34b5ddb22400f51a2162ed2b50865f0a8ec"
+      url "https://github.com/andyhtran/slacky/releases/download/v1.1.0/slacky_Linux_x86_64.tar.gz"
+      sha256 "09ef6ef7c4163007c9b0917eca60a676f29256299faf0cc1f66236130b9db9e2"
       define_method(:install) do
         bin.install "slacky"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/andyhtran/slacky/releases/download/v0.1.0/slacky_Linux_arm64.tar.gz"
-      sha256 "6d6d2c4e7856f9fb0512379a340626e64639d9578af2e2f187776aaf7649396e"
+      url "https://github.com/andyhtran/slacky/releases/download/v1.1.0/slacky_Linux_arm64.tar.gz"
+      sha256 "30ad724d118ede9dd43c4bb6307f25efcdf42eb13dce6e643b2cf462f849fbd5"
       define_method(:install) do
         bin.install "slacky"
       end
