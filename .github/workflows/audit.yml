@@ -23,6 +23,7 @@ jobs:
         run: |
           mkdir -p "$(brew --repository)/Library/Taps/andyhtran"
           ln -s "$GITHUB_WORKSPACE" "$(brew --repository)/Library/Taps/andyhtran/homebrew-tap"
+          brew trust andyhtran/tap
 
       - name: Audit formulas
         run: |
