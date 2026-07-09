@@ -4,9 +4,9 @@
 class Jobclip < Formula
   desc "Search tech jobs across popular company career pages"
   homepage "https://github.com/andyhtran/jobclip"
-  url "https://github.com/andyhtran/jobclip/releases/download/v0.1.3/jobclip_0.1.3_darwin_arm64.tar.gz"
-  version "0.1.3"
-  sha256 "941672dc000eb6e79f24a6f47ac07f04a73fd9b25247e5830390b453e4bf761c"
+  url "https://github.com/andyhtran/jobclip/releases/download/v0.1.4/jobclip_0.1.4_darwin_arm64.tar.gz"
+  version "0.1.4"
+  sha256 "4ace9524460e8e4d6e428a127cd5e4441c2d45ab8340d2053539f9b35fd22f97"
   license :cannot_represent
 
   depends_on arch: :arm64
