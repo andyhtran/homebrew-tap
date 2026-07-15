@@ -1,13 +1,13 @@
 cask "copycat" do
-  version "0.3.3"
-  sha256 "8abf1590d1806b1f2d9765ec7db21f9ff7acec1bb4607319d917838b937228f4"
+  version "1.0.0"
+  sha256 "5b2ddd1818b260164a72952ac14031f4133716e9736816f5bc7df9534050308d"
 
   url "https://github.com/andyhtran/CopyCat/releases/download/v#{version}/CopyCat-#{version}.zip"
   name "CopyCat"
   desc "Image-paste menu bar app for terminals"
   homepage "https://github.com/andyhtran/CopyCat"
 
-  depends_on macos: :sonoma
+  depends_on macos: ">= :sonoma"
 
   app "CopyCat.app"
 
