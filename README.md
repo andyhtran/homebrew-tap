@@ -23,6 +23,7 @@ brew install --cask <cask>
 | Formula | Description |
 |---------|-------------|
 | [cct](https://github.com/andyhtran/cct) | Claude Code Tools: list, search, resume your Claude Code sessions |
+| [googly](https://github.com/andyhtran/googly) | Google Workspace from the terminal: Gmail, Calendar, Drive, Docs, Sheets, Slides |
 | [slacky](https://github.com/andyhtran/slacky) | Read-only Slack search for fast context, built for people and agents |
 | [sparkle-tools](https://sparkle-project.org) | CLI tools for Sparkle 2 app updates (generate_keys, generate_appcast, sign_update) |
 
