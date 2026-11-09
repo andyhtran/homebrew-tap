@@ -4,7 +4,6 @@
 class XiaohongshuCli < Formula
   desc "Headless Rednote (Xiaohongshu) CLI"
   homepage "https://github.com/andyhtran/xiaohongshu-cli"
-  version "0.1.0"
   license "MIT"
 
   on_macos do

@@ -27,18 +27,33 @@ jobs:
 
       - name: Audit formulas
         run: |
+          failed=0
           for f in Formula/*.rb; do
             [ -f "$f" ] || continue
             name="$(basename "$f" .rb)"
             echo "==> Auditing $name"
-            brew audit --formula "$name"
+            if output="$(brew audit --formula "andyhtran/tap/$name" 2>&1)"; then
+              continue
+            fi
+            problems="$(printf '%s\n' "$output" | grep -E '^[[:space:]]+\* ' || true)"
+            blocking="$(printf '%s\n' "$problems" | grep -v -E 'is redundant with version scanned from URL' | grep -E '[^[:space:]]' || true)"
+            if [ -z "$problems" ] || [ -n "$blocking" ]; then
+              printf '%s\n' "$output"
+              echo "::error::$name failed brew audit"
+              failed=1
+            else
+              echo "::warning::$name: redundant version line only (generated formulas always include it)"
+            fi
           done
+          exit "$failed"
 
       - name: Audit casks
         run: |
+          failed=0
           for f in Casks/*.rb; do
             [ -f "$f" ] || continue
             name="$(basename "$f" .rb)"
             echo "==> Auditing $name"
-            brew audit --cask "$name"
+            brew audit --cask "andyhtran/tap/$name" || failed=1
           done
+          exit "$failed"
